@@ -1,5 +1,6 @@
 #include <iostream>
 
+#include <log/log.h>
 #include <data/json/Json.h>
 
 using namespace std;
@@ -10,12 +11,12 @@ namespace data
     {
         Json::Json()
         {
-            cout << "[data][Json] Constructor" << endl;
+            DEBUG( "Constructor" );
         }
 
         Json::~Json()
         {
-            cout << "[data][Json] Destructor" << endl;
+            DEBUG( "Destructor" );
         }
 
         string Json::toString() const

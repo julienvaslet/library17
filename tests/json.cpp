@@ -5,6 +5,7 @@
 #include <vector>
 #include <iterator>
 
+#include <log/log.h>
 #include <data/json/Json.h>
 
 using namespace std;
@@ -48,17 +49,17 @@ int main( int argc, char ** argv )
     rawJson << "\n";
     rawJson << "}";
 
-    cout << "Input data: " << endl << rawJson.str() << endl;
+    INFO("Input data: " << endl << rawJson.str());
 
     auto json = Json::parse( rawJson.str() );
 
     if( json != nullptr )
     {
-        cout << "Parsed data:" << endl;
-        cout << json->toString() << endl;
+        INFO("Parsed data: ");
+        INFO(json->toString());
     }
     else
-        cerr << "[#] Cannot parse Json data." << endl;
+        ERROR("Cannot parse Json data.");
 
     return 0;
 }
